@@ -9,10 +9,11 @@ type Lexer struct {
 	ch           byte   //8  bits, current char under examination
 }
 
-//returns *Lexer
+//takes in input (which is a string), the input is the source code/text lexer will process
+//the function returns a reference to a lexer
 func New(input string) *Lexer {
-	l := &Lexer{input: input}
-	l.readChar()
+	l := &Lexer{input: input} //allocating memory for a new instance the lexer (allocated with &Lexer{})
+	l.readChar()//starts the lexer off (called on the newly created lexer "l" instance)
 	return l
 }
 

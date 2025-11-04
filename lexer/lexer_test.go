@@ -8,6 +8,7 @@ import (
 
 func TestNextToken(t *testing.T) {
 
+	//belive this is hardcoded input for testing purposes
 	input := `=+(){},;` //:= infers the type (string in this case) (initializes and declares)
 
 	tests := []struct {
