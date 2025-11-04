@@ -1,5 +1,7 @@
 package lexer //will be part of the lexer package
 
+import "monkey/token"
+
 type Lexer struct {
 	input        string //
 	position     int    //32 bits, current position in input (points to current char)
@@ -10,6 +12,7 @@ type Lexer struct {
 //returns *Lexer
 func New(input string) *Lexer {
 	l := &Lexer{input: input}
+	l.readChar()
 	return l
 }
 
@@ -18,11 +21,13 @@ func (l *Lexer) readChar() {
 	if l.readPosition >= len(l.input) {
 		l.ch=0 //if it is the end of input, set l.ch to 0 which is the ASCII code for "nul"
 	}
-	else{
+	//if not at the end of input, set l.ch to next char
+	else {
+		//do this by accessing
 		l.ch = l.input[l.readPosition]
 	}
 	//readPosition points to the "next" character in the input, position points to the character in the input that corresponds to the ch byte 
-	l.position = l.readPosition
-	l.readPosition += 1
+	l.position = l.readPosition //moves to current
+	l.readPosition += 1 //read position moves on (incremented 1 for next char)
 }
 
